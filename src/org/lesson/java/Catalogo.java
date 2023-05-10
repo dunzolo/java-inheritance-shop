@@ -8,7 +8,7 @@ public class Catalogo {
 		
 		Prodotto[] arr = new Prodotto[10];
 		
-		int count = -1;
+		int count = 0;
 		
 		while(true) {
 			
@@ -24,6 +24,8 @@ public class Catalogo {
 				System.err.println("Opzione non valida");	
 				continue;	
 			}
+			
+			if (n == 4) break;
 			
 			System.out.println("Inserisci il nome");
 			String nome = sc.next();
@@ -53,9 +55,7 @@ public class Catalogo {
 					
 					Televisore t = new Televisore (nome, marca, prezzo, iva, dimensioni, smart);
 					
-					count++;
-					
-					arr[count] = t;
+					arr[count++] = t;
 				}
 				break;
 				case 2:{
@@ -73,9 +73,7 @@ public class Catalogo {
 					
 					Cuffia c = new Cuffia(nome, marca, prezzo, iva, colore, wireless);
 					
-					count++;
-					
-					arr[count] = c;
+					arr[count++] = c;
 				}
 				break;
 				case 3:{
@@ -84,15 +82,17 @@ public class Catalogo {
 					
 					Smartphone s = new Smartphone(nome, marca, prezzo, iva, memoria);
 					
-					count++;
-					
-					arr[count] = s;
+					arr[count++] = s;
 				}
 				break;
-				case 4:
-					System.out.println("Saluti!");
-					return;
 			}
 		}
+		System.out.println("Elenco catalogo");
+		
+		for (int i = 0; i < count; i++) {
+			Prodotto p = arr[i];
+			System.out.println(p);
+		}
+		
 	}
 }
